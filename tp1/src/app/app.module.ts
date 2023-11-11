@@ -5,14 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MiniWordComponent } from './mini-word/mini-word.component';
 import { RainbowWordComponent } from './rainbow-word/rainbow-word.component';
-import { RainbowDirective } from './rainbow.directive';
+import { RainbowDirective } from './rainbow-word/directives/rainbow.directive';
+import { CvComponent } from './cv-management/cv/cv.component';
+import { ListComponent } from './cv-management/list/list.component';
+import { ItemComponent } from './cv-management/item/item.component';
+import { CardComponent } from './cv-management/card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MiniWordComponent,
     RainbowWordComponent,
-    RainbowDirective
+    RainbowDirective,
+    CvComponent,
+    ListComponent,
+    ItemComponent,
+    CardComponent
   ],
   imports: [
     FormsModule,
