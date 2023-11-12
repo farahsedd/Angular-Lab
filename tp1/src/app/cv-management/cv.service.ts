@@ -12,13 +12,8 @@ export class CvService {
       if (this.cvs.length === 0) {
       const response = await fetch('https://apilb.tridevs.net/api/personnes');
       const cvs = (await response.json() ) as Cv[]
-      this.cvs = cvs.map((cv:Cv)=>{
-        cv.description = cv.description??"This is the job description"
-        cv.followers = cv.followers??"20"
-        cv.projects = cv.projects??"10"
-        cv.following = cv.following??"10"
-        return cv;
-      })}
+      this.cvs = cvs.map(this.fillCv);
+      }
       return this.cvs;
     } catch (error) {
       alert(""+error);
@@ -29,11 +24,7 @@ export class CvService {
     try {
       const response = await fetch(`https://apilb.tridevs.net/api/personnes/${id}`);
       const cv =  await response.json();
-      cv.description = cv.description??"This is the job description"
-      cv.followers = cv.followers??"20"
-      cv.projects = cv.projects??"10"
-      cv.following = cv.following??"10"
-      return cv;
+      return this.fillCv(cv);
     } catch (error) {
       alert(""+error);
     }
@@ -47,5 +38,18 @@ export class CvService {
     } else {
       alert("Cv not found")
     }
+  }
+
+  private fillCv = (cv:Cv)=>{
+    cv.description = cv.description??"This is the job description"
+    cv.followers = cv.followers??"20"
+    cv.projects = cv.projects??"10"
+    cv.following = cv.following??"10"
+    if (!cv.path || cv.path === "") {
+      cv.path = "https://brsc.sa.edu.au/wp-content/uploads/2018/09/placeholder-profile-sq.jpg";
+    } else {
+      cv.path = "assets/" + cv.path;
+    }
+    return cv;
   }
 }
