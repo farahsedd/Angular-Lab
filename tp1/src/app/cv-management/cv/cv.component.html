@@ -1,1 +1,19 @@
-<p>cv works!</p>
+<div style="margin: auto;max-width: 60%;min-width: 500px">
+  <div class="card mb-3">
+    <img src="{{cv.path}}" class="card-img-top" alt="Cv of {{cv.name}}" height="200px" style="object-fit: contain">
+    <div class="card-body">
+      <h5 class="card-title">{{cv.name }} {{cv.firstname}}</h5>
+      <h6>CIN: {{ cv.cin }}</h6>
+      <h6 class="card-text">Job : </h6>
+      <p class="card-text">{{cv.job}}</p>
+      <h6 class="card-text">{{cv.description}}</h6>
+      <p class="card-text">Followers : {{cv.followers}}</p>
+      <p class="card-text">Following : {{cv.following}}</p>
+      <p class="card-text">Projects : {{cv.projects}}</p>
+    </div>
+  </div>
+  <div style="display: flex;justify-content: space-evenly">
+    <button class="btn btn-primary" (click)="embaucher()">Embaucher</button>
+    <button class="btn btn-danger button" (click)="supprimer()">Supprimer</button>
+  </div>
+</div>

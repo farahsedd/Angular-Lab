@@ -15,8 +15,5 @@ export class RainbowDirective {
     this.textColor = this.colors[randomIndex];
     this.borderColor = this.colors[randomIndex];
   }
-   constructor(){
-    
-   }
 
 }

@@ -5,6 +5,8 @@ import {RainbowWordComponent} from "./rainbow-word/rainbow-word.component";
 import {ListComponent} from "./cv-management/list/list.component";
 import { LoginComponent } from './login/login/login.component';
 import { LogoutComponent } from './login/logout/logout.component';
+import {CvTechComponent} from "./cv-management/cv-tech/cv-tech.component";
+import {CvComponent} from "./cv-management/cv/cv.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/mini-word', pathMatch: 'full' },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'cv', component:  ListComponent },
   { path: 'login', component:  LoginComponent },
   { path: 'logout', component:  LogoutComponent },
+  { path: 'cv-tech', component:  CvTechComponent },
+  { path: 'cv/:id', component: CvComponent },
 ];
 
 @NgModule({

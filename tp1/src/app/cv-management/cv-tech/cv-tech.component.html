@@ -1,0 +1,10 @@
+<div style="display: flex">
+  <div style="min-width: 50%">
+    <app-list [cvs]="cvs" (selectCv)="onSelect($event)"></app-list>
+  </div>
+  <app-card  *ngIf="selectedCv" (AddEmbauchee)="onAddEmbauche($event)" [cv]="selectedCv"></app-card>
+</div>
+<div>
+  <p>Liste des personnes pré selectionnées : </p>
+  <app-selected [personnesEmbauchees]="embauchees"></app-selected>
+</div>

@@ -17,6 +17,9 @@ import { StoreModule, provideStore } from '@ngrx/store';
 import { userReducer } from './login/store/user.reducers';
 import { appStore } from './login/store/user.store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {NgOptimizedImage} from "@angular/common";
+import { CvTechComponent } from './cv-management/cv-tech/cv-tech.component';
+import { SelectedComponent } from './cv-management/selected/selected.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ItemComponent,
     CardComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    CvTechComponent,
+    SelectedComponent
   ],
   imports: [
     FormsModule,
@@ -39,7 +44,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreModule.forRoot({user:userReducer},{}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
-    })
+    }),
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

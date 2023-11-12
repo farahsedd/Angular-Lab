@@ -1,0 +1,19 @@
+.image{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  border-radius: 150px;
+  border-color: blue;
+}
+
+.flex-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-right: 30px;
+}
