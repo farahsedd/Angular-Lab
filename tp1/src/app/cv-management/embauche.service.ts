@@ -11,6 +11,7 @@ export class EmbaucheService {
   embaucher (cv: Cv): void {
     if (!this.embauchees.includes(cv)) {
       this.embauchees.push(cv);
+      console.log("embauchess",this.embauchees)
     } else {
       alert(`${cv.name} est déjà embauché(e)`);
     }

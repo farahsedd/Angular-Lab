@@ -12,6 +12,7 @@ import { ItemComponent } from './cv-management/item/item.component';
 import { CardComponent } from './cv-management/card/card.component';
 import {NgOptimizedImage} from "@angular/common";
 import { CvTechComponent } from './cv-management/cv-tech/cv-tech.component';
+import { SelectedComponent } from './cv-management/selected/selected.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CvTechComponent } from './cv-management/cv-tech/cv-tech.component';
     ListComponent,
     ItemComponent,
     CardComponent,
-    CvTechComponent
+    CvTechComponent,
+    SelectedComponent
   ],
   imports: [
     FormsModule,
