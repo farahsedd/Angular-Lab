@@ -1,0 +1,4 @@
+<div style="display: flex">
+  <app-list [cvs]="cvs" (selectCv)="onSelect($event)"></app-list>
+  <app-card *ngIf="selectedCv" [cv]="selectedCv"></app-card>
+</div>

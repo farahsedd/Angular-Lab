@@ -1,19 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit{
-  user = {
-    name: 'John',
-    firstname: 'Doe',
-    age: 25,
-    description:'bfdqhsdbf fqdvqsk dfvkjqdhfnv dfsvkjqdnkv dfsvqdkf'
-    // Add other properties as needed
-  };
-  ngOnInit(): void {
+export class CardComponent {
+  @Input() cv: any = null;
+  ngOnChanges(): void {
+    console.log(this.cv);
   }
-
 }

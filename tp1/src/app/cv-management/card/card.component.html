@@ -2,11 +2,11 @@
   <div class="flip-card-inner">
     <div class="flip-card-front">
       <div class="header">
-        <img  alt="Top Half of Image" class="header-image" src="assets/user1.jpeg">
+        <img  alt="Top Half of Image" class="header-image" src="assets/{{cv.path}}">
       </div>
       <div class="header-info">
-        <h1>{{ user.name }} {{ user.firstname }}</h1>
-        <p>Age: {{ user.age }}</p>
+        <h1>{{ cv.name }} {{ cv.firstname }}</h1>
+        <p>Age: {{ cv.age }}</p>
       </div>
 
 
@@ -14,7 +14,7 @@
     <div class="flip-card-back">
       <div class="content">
       <h3>Job Description</h3>
-      <p>{{ user.description }}</p>
+      <p>{{ cv.description }}</p>
       <div class="list">
         <div>
           <p>55</p>
@@ -36,4 +36,5 @@
       </div>
 
   </div>
+</div>
 </div>

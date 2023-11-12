@@ -10,6 +10,8 @@ import { CvComponent } from './cv-management/cv/cv.component';
 import { ListComponent } from './cv-management/list/list.component';
 import { ItemComponent } from './cv-management/item/item.component';
 import { CardComponent } from './cv-management/card/card.component';
+import {NgOptimizedImage} from "@angular/common";
+import { CvTechComponent } from './cv-management/cv-tech/cv-tech.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { CardComponent } from './cv-management/card/card.component';
     CvComponent,
     ListComponent,
     ItemComponent,
-    CardComponent
+    CardComponent,
+    CvTechComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]
