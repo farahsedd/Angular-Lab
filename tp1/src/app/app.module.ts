@@ -10,7 +10,13 @@ import { CvComponent } from './cv-management/cv/cv.component';
 import { ListComponent } from './cv-management/list/list.component';
 import { ItemComponent } from './cv-management/item/item.component';
 import { CardComponent } from './cv-management/card/card.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login/login.component';
+import { HttpClientModule } from "@angular/common/http";
+import { LogoutComponent } from './login/logout/logout.component';
+import { StoreModule, provideStore } from '@ngrx/store';
+import { userReducer } from './login/store/user.reducers';
+import { appStore } from './login/store/user.store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -22,12 +28,18 @@ import { LoginComponent } from './login/login.component';
     ListComponent,
     ItemComponent,
     CardComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    StoreModule.forRoot({user:userReducer},{}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

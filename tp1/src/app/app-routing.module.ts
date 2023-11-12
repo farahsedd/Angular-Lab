@@ -3,12 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import {MiniWordComponent} from "./mini-word/mini-word.component";
 import {RainbowWordComponent} from "./rainbow-word/rainbow-word.component";
 import {ListComponent} from "./cv-management/list/list.component";
+import { LoginComponent } from './login/login/login.component';
+import { LogoutComponent } from './login/logout/logout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/mini-word', pathMatch: 'full' },
   { path: 'mini-word', component: MiniWordComponent },
   { path: 'rainbow-word', component: RainbowWordComponent },
   { path: 'cv', component:  ListComponent },
+  { path: 'login', component:  LoginComponent },
+  { path: 'logout', component:  LogoutComponent },
 ];
 
 @NgModule({
