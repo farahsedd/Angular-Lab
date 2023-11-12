@@ -10,6 +10,7 @@ import { CvComponent } from './cv-management/cv/cv.component';
 import { ListComponent } from './cv-management/list/list.component';
 import { ItemComponent } from './cv-management/item/item.component';
 import { CardComponent } from './cv-management/card/card.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CardComponent } from './cv-management/card/card.component';
     CvComponent,
     ListComponent,
     ItemComponent,
-    CardComponent
+    CardComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,
