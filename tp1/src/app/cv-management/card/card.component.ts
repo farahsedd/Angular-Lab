@@ -26,6 +26,6 @@ export class CardComponent{
   }
 
   navigate() {
-    this.router.navigateByUrl('/cv/'+ this.cv.id);
+    this.router.navigate(['cv', this.cv.id]);
   }
 }

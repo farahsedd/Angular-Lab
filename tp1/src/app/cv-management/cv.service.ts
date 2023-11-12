@@ -1,27 +1,30 @@
 import {Injectable} from '@angular/core';
 import {Cv} from "./Cv";
+import {dataService} from "./data";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CvService {
 
-  cvs: Cv[] = [];
   async getAllCvs(): Promise<Cv[]> {
     try {
-      if (this.cvs.length === 0) {
-      const response = await fetch('https://apilb.tridevs.net/api/personnes');
-      const cvs = (await response.json() ) as Cv[]
-      this.cvs = cvs.map(this.fillCv);
+      console.log("getAll",dataService.cvs)
+      if (dataService.cvs.length === 0) {
+        const response = await fetch('https://apilb.tridevs.net/api/personnes');
+        const cvs = (await response.json() ) as Cv[]
+        dataService.cvs = cvs.map(this.fillCv);
       }
-      return this.cvs;
+      return dataService.cvs;
     } catch (error) {
       alert(""+error);
     }
     return [] as Cv[];
   }
+
   async getCvById(id:string):Promise<Cv> {
     try {
+      console.log("get",dataService.cvs)
       const response = await fetch(`https://apilb.tridevs.net/api/personnes/${id}`);
       const cv =  await response.json();
       return this.fillCv(cv);
@@ -32,9 +35,10 @@ export class CvService {
   }
 
   supprimerCv(id:string):void {
-    const selected = this.cvs.findIndex((cv:Cv)=>cv.id===id)
+    const selected = dataService.cvs.findIndex((cv:Cv)=>cv.id===id)
+    console.log("supp",dataService.cvs)
     if(selected>=0){
-      this.cvs.splice(selected,1);
+      dataService.cvs.splice(selected,1);
     } else {
       alert("Cv not found")
     }
