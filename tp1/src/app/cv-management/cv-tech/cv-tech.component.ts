@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {CvService} from "../cv.service";
+import {Cv} from "../Cv";
 
 @Component({
   selector: 'app-cv-tech',
@@ -9,14 +10,14 @@ import {CvService} from "../cv.service";
 export class CvTechComponent {
   constructor(private cvService: CvService) {}
 
-  cvs: any[] = [];
-  selectedCv: any = null;
+  cvs: Cv[] = [];
+  selectedCv: Cv|null = null;
 
   async ngOnInit(): Promise<void> {
     this.cvs = await this.cvService.getAllCvs();
   }
 
-  onSelect(event:unknown): void {
+  onSelect(event:Cv): void {
     this.selectedCv = event;
   }
 

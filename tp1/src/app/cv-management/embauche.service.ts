@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+import {Cv} from "./Cv";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmbaucheService {
 
-  private embauchees: any[] = [];
+  private embauchees: Cv[] = [];
 
-  embaucher(cv: any): void {
+  embaucher (cv: Cv): void {
     if (!this.embauchees.includes(cv)) {
       this.embauchees.push(cv);
     } else {
@@ -15,14 +16,16 @@ export class EmbaucheService {
     }
   }
 
-  debaucher(cv: any): void {
+  debaucher (cv: Cv): void {
     const index = this.embauchees.indexOf(cv);
     if (index >= 0) {
       this.embauchees.splice(index, 1);
+    } else {
+      alert(`${cv.name} n'est pas embauché(e)`);
     }
   }
 
-  getEmbauchees(): any[] {
+  getEmbauchees (): Cv[] {
     return this.embauchees;
   }
 }

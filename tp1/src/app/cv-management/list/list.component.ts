@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CvService} from "../cv.service";
+import {Cv} from "../Cv";
 
 @Component({
   selector: 'app-list',
@@ -9,8 +10,8 @@ import {CvService} from "../cv.service";
 })
 export class ListComponent {
 
-  @Input() cvs: any[] = [];
-  @Output() selectCv = new EventEmitter<any>();
+  @Input() cvs: Cv[] = [];
+  @Output() selectCv = new EventEmitter<Cv>();
 
   onSelect(cv: any): void {
     this.selectCv.emit(cv);

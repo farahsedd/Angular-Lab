@@ -1,3 +1,10 @@
 <li class="list-group-item">
-  {{ cv.name }} {{ cv.firstname}} <img src="assets/{{cv.path}}" alt="{{ 'user '+cv.id}}">
+  <div style="display: flex ;align-items: center; justify-content: space-evenly">
+    <img src="assets/{{cv.path}}" alt="{{ 'user '+cv.id}}" height="100px">
+    <div>{{ cv.name }} {{ cv.firstname}}</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 </li>

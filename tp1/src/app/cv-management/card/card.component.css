@@ -3,6 +3,7 @@
   width: 500px;
   height: 500px;
   perspective: 1000px;
+  margin: 0 3%;
 }
 
 .flip-card-inner {
@@ -52,9 +53,9 @@
 
 .header-image {
   margin-top:10%;
-  width: 30%;
+  width: 40%;
   height: 60%;
-  object-fit: cover; /* Maintain aspect ratio while covering the container */
+  object-fit: contain; /* Maintain aspect ratio while covering the container */
   border-radius: 50%; /* Make the image rounded */
 }
 .button{
@@ -62,9 +63,9 @@
 }
 
 .list{
-  margin-top: 15%;
-  margin-bottom: 25%;
-  justify-content: center;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  justify-content: space-around;
   display: flex;
   flex-direction: row;
 
