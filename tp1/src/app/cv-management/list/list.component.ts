@@ -10,7 +10,7 @@ import {Cv} from "../Cv";
 })
 export class ListComponent {
 
-  @Input() cvs: Cv[] = [];
+  @Input() cvs: Cv[] | null = [];
   @Output() selectCv = new EventEmitter<Cv>();
 
   onSelect(cv: any): void {

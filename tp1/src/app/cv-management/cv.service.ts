@@ -1,4 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import { map } from 'rxjs';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs';
+import { catchError } from 'rxjs';
 import {Cv} from "./Cv";
 import {dataService} from "./data";
 
@@ -7,42 +12,25 @@ import {dataService} from "./data";
 })
 export class CvService {
 
-  async getAllCvs(): Promise<Cv[]> {
-    try {
-      console.log("getAll",dataService.cvs)
-      if (dataService.cvs.length === 0) {
-        const response = await fetch('https://apilb.tridevs.net/api/personnes');
-        const cvs = (await response.json() ) as Cv[]
-        dataService.cvs = cvs.map(this.fillCv);
-      }
-      return dataService.cvs;
-    } catch (error) {
-      alert(""+error);
-    }
-    return [] as Cv[];
+  constructor(private http: HttpClient ) {
+  }
+  getAllCvs(): Observable<Cv[]> {
+      return this.http.get<Cv[]>('https://apilb.tridevs.net/api/personnes')
+        .pipe(
+          catchError(e => of(dataService.cvs))
+        );
   }
 
-  async getCvById(id:string):Promise<Cv> {
-    try {
-      console.log("get",dataService.cvs)
-      const response = await fetch(`https://apilb.tridevs.net/api/personnes/${id}`);
-      const cv =  await response.json();
-      return this.fillCv(cv);
-    } catch (error) {
-      alert(""+error);
-    }
-    return {} as Cv;
+  getCvById(id: string): Observable<Cv> {
+    return this.http.get('https://apilb.tridevs.net/api/personnes/' + id).pipe(
+      map((obj) => obj as Cv ),
+      catchError(e => of(dataService.cvs[0]))
+    )
   }
 
-  supprimerCv(id:string):void {
-    const selected = dataService.cvs.findIndex((cv:Cv)=>cv.id===id)
-    console.log("supp",dataService.cvs)
-    if(selected>=0){
-      dataService.cvs.splice(selected,1);
-    } else {
-      alert("Cv not found")
+  supprimerCv(id:string): Observable<any> {
+      return this.http.delete('https://apilb.tridevs.net/api/personnes/' + id);
     }
-  }
 
   private fillCv = (cv:Cv)=>{
     cv.description = cv.description??"This is the job description"

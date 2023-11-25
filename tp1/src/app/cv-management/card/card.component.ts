@@ -16,7 +16,7 @@ export class CardComponent{
   @Input() cv: Cv = {} as Cv ;
   @Output() AddEmbauchee = new EventEmitter<any>();
   async ngOnInit(): Promise<void> {
-    this.cv = await this.cvService.getCvById(this.cv.id);
+    this.cvService.getCvById(this.cv.id).subscribe((cv)=> this.cv=cv);
   }
   embaucher(): void {
     if (this.cv) {

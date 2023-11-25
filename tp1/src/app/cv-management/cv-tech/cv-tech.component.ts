@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import {CvService} from "../cv.service";
 import {EmbaucheService} from "../embauche.service";
 import {Cv} from "../Cv";
@@ -13,11 +14,11 @@ export class CvTechComponent {
   constructor(private cvService: CvService,private embaucheService : EmbaucheService) {}
 
   embauchees : Cv[] = [];
-  cvs: Cv[] = [];
+  cvs$: Observable<Cv[]> = new Observable<Cv[]>();
   selectedCv: Cv|null = null;
 
   async ngOnInit(): Promise<void> {
-    this.cvs = await this.cvService.getAllCvs();
+    this.cvs$ = this.cvService.getAllCvs();
     this.embauchees = this.embaucheService.getEmbauchees();
   }
 
