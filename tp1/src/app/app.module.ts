@@ -25,6 +25,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MasterDetailsCvComponent } from './cv-management/master-details-cv/master-details-cv.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DetailsComponent } from './cv-management/details/details.component';
+import {PaginatedListComponent} from './product/paginated-list/paginated-list.component';
+import {ProductItemComponent} from './product/product-item/product-item.component';
+import {ProductPageComponent} from './product/product-page/product-page.component';
+import { MergeComponent } from './merge/merge.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,11 @@ import { DetailsComponent } from './cv-management/details/details.component';
     MasterDetailsCvComponent,
     NavbarComponent,
     DetailsComponent
+    MergeComponent,
+    SelectedComponent,
+    PaginatedListComponent,
+    ProductItemComponent,
+    ProductPageComponent
   ],
   imports: [
     FormsModule,
@@ -55,7 +64,7 @@ import { DetailsComponent } from './cv-management/details/details.component';
     }),
     NgOptimizedImage,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
     ReactiveFormsModule
   ],
   providers: [],
