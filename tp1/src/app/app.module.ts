@@ -1,28 +1,29 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { MiniWordComponent } from './mini-word/mini-word.component';
-import { RainbowWordComponent } from './rainbow-word/rainbow-word.component';
-import { RainbowDirective } from './rainbow-word/directives/rainbow.directive';
-import { CvComponent } from './cv-management/cv/cv.component';
-import { ListComponent } from './cv-management/list/list.component';
-import { ItemComponent } from './cv-management/item/item.component';
-import { CardComponent } from './cv-management/card/card.component';
-import { LoginComponent } from './login/login/login.component';
-import { HttpClientModule } from "@angular/common/http";
-import { LogoutComponent } from './login/logout/logout.component';
-import { StoreModule, provideStore } from '@ngrx/store';
-import { userReducer } from './login/store/user.reducers';
-import { appStore } from './login/store/user.store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {MiniWordComponent} from './mini-word/mini-word.component';
+import {RainbowWordComponent} from './rainbow-word/rainbow-word.component';
+import {RainbowDirective} from './rainbow-word/directives/rainbow.directive';
+import {CvComponent} from './cv-management/cv/cv.component';
+import {ListComponent} from './cv-management/list/list.component';
+import {ItemComponent} from './cv-management/item/item.component';
+import {CardComponent} from './cv-management/card/card.component';
+import {LoginComponent} from './login/login/login.component';
+import {HttpClientModule} from "@angular/common/http";
+import {LogoutComponent} from './login/logout/logout.component';
+import {StoreModule} from '@ngrx/store';
+import {userReducer} from './login/store/user.reducers';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {NgOptimizedImage} from "@angular/common";
-import { CvTechComponent } from './cv-management/cv-tech/cv-tech.component';
-import { SelectedComponent } from './cv-management/selected/selected.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
-import { ReactiveFormsModule } from '@angular/forms';
+import {CvTechComponent} from './cv-management/cv-tech/cv-tech.component';
+import {SelectedComponent} from './cv-management/selected/selected.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
+import {PaginatedListComponent} from './product/paginated-list/paginated-list.component';
+import {ProductItemComponent} from './product/product-item/product-item.component';
+import {ProductPageComponent} from './product/product-page/product-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     LogoutComponent,
     CvTechComponent,
-    SelectedComponent
+    SelectedComponent,
+    PaginatedListComponent,
+    ProductItemComponent,
+    ProductPageComponent
   ],
   imports: [
     FormsModule,
@@ -50,7 +54,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     }),
     NgOptimizedImage,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
     ReactiveFormsModule
   ],
   providers: [],
