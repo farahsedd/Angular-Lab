@@ -71,7 +71,7 @@
 
     <button
       type="submit"
-      [disabled]="loginForm.invalid"
+      [disabled]="loginForm.invalid || (authService.user$ | async) !== null"
       class="btn btn-primary"
     >
       Envoyer
