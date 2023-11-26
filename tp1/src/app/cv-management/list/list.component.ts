@@ -13,6 +13,9 @@ export class ListComponent {
   @Input() cvs: Cv[] | null = [];
   @Output() selectCv = new EventEmitter<Cv>();
 
+  @Input()
+  onItemClick!: (cv: Cv)=>void;
+  
   onSelect(cv: any): void {
     this.selectCv.emit(cv);
   }

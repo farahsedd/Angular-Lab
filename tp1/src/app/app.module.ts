@@ -15,7 +15,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { LogoutComponent } from './login/logout/logout.component';
 import { StoreModule, provideStore } from '@ngrx/store';
 import { userReducer } from './login/store/user.reducers';
-import { appStore } from './login/store/user.store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {NgOptimizedImage} from "@angular/common";
 import { CvTechComponent } from './cv-management/cv-tech/cv-tech.component';
@@ -23,6 +22,9 @@ import { SelectedComponent } from './cv-management/selected/selected.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MasterDetailsCvComponent } from './cv-management/master-details-cv/master-details-cv.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DetailsComponent } from './cv-management/details/details.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     LogoutComponent,
     CvTechComponent,
-    SelectedComponent
+    SelectedComponent,
+    MasterDetailsCvComponent,
+    NavbarComponent,
+    DetailsComponent
   ],
   imports: [
     FormsModule,

@@ -12,6 +12,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./cv.component.css']
 })
 export class CvComponent {
+  
   cv$: Observable<Cv> = new Observable<Cv>();
   id: string = "";
   
