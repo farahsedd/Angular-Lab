@@ -1,6 +1,11 @@
 <div style="display: flex" >
   <div style="min-width: 50%">
-    <app-list *ngIf="cvs$ | async" [cvs]="cvs$ | async" (selectCv)="onSelect($event)"></app-list>
+    <nav class="navbar navbar-expand-lg bg-body-secondary d-flex gap-5">
+      <li class="nav-item nav-link" [ngStyle]="!shouldDisplayAbove40 ? {color: 'blue'} :  {}"  (click)="changeTab(false)">Juniors</li>
+      <li class="nav-item nav-link" [ngStyle]="shouldDisplayAbove40 ? {color: 'blue'} :  {}" (click)="changeTab(true)">Seniors</li>
+    </nav>
+    <app-list *ngIf="shouldDisplayAbove40" [cvs]="cvsAbove40$ | async" (selectCv)="onSelect($event)"></app-list>
+    <app-list *ngIf="!shouldDisplayAbove40" [cvs]="cvsBelow40$ | async" (selectCv)="onSelect($event)"></app-list>
   </div>
   <app-card *ngIf="selectedCv" (AddEmbauchee)="onAddEmbauche($event)" [cv]="selectedCv" ></app-card>
 </div>
