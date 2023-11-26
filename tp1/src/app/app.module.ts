@@ -24,6 +24,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {PaginatedListComponent} from './product/paginated-list/paginated-list.component';
 import {ProductItemComponent} from './product/product-item/product-item.component';
 import {ProductPageComponent} from './product/product-page/product-page.component';
+import { MergeComponent } from './merge/merge.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,8 @@ import {ProductPageComponent} from './product/product-page/product-page.componen
     LoginComponent,
     LogoutComponent,
     CvTechComponent,
+    SelectedComponent,
+    MergeComponent,
     SelectedComponent,
     PaginatedListComponent,
     ProductItemComponent,

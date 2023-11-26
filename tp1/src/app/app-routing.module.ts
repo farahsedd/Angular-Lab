@@ -9,6 +9,7 @@ import {CvTechComponent} from "./cv-management/cv-tech/cv-tech.component";
 import {CvComponent} from "./cv-management/cv/cv.component";
 import {PaginatedListComponent} from "./product/paginated-list/paginated-list.component";
 import {ProductPageComponent} from "./product/product-page/product-page.component";
+import {MergeComponent} from "./merge/merge.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/mini-word', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'logout', component:  LogoutComponent },
   { path: 'cv-tech', component:  CvTechComponent },
   { path: 'cv/:id', component: CvComponent },
+  { path: 'merge', component: MergeComponent },
   { path: 'product-list', component:  PaginatedListComponent },
   { path: 'product/:id', component: ProductPageComponent }
 ];
