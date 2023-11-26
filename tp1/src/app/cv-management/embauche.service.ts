@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Cv} from "./Cv";
 import {dataService} from "./data";
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmbaucheService {
+  constructor(private toastr: ToastrService) {}
 
   embaucher (cv: Cv): void {
     let found = false
@@ -16,8 +18,11 @@ export class EmbaucheService {
     })
     if (!found) {
       dataService.embauchees.push(cv);
+      this.toastr.success(`${cv.name} ${cv.firstname} a été embauché(e)`);
+
     } else {
-      alert(`${cv.name} ${cv.firstname} est déjà embauché(e)`);
+      this.toastr.error(`${cv.name} ${cv.firstname} est déjà embauché(e)`);
+
     }
   }
 

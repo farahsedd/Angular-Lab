@@ -20,6 +20,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {NgOptimizedImage} from "@angular/common";
 import { CvTechComponent } from './cv-management/cv-tech/cv-tech.component';
 import { SelectedComponent } from './cv-management/selected/selected.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -45,9 +48,13 @@ import { SelectedComponent } from './cv-management/selected/selected.component';
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     }),
-    NgOptimizedImage
+    NgOptimizedImage,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
