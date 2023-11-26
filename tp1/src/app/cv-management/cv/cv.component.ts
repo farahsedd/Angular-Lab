@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {CvService} from "../cv.service";
 import {Cv} from "../Cv";
 import {EmbaucheService} from "../embauche.service";
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-cv',
@@ -13,11 +14,14 @@ import {EmbaucheService} from "../embauche.service";
 export class CvComponent {
   cv$: Observable<Cv> = new Observable<Cv>();
   id: string = "";
+  
   constructor( private route :ActivatedRoute, private router:Router,private cvService :CvService,private embaucheService:EmbaucheService) {}
   async ngOnInit(): Promise<void> {
     this.id = this.route.snapshot.params['id'];
     this.cv$ = this.cvService.getCvById(this.id);
     console.log(this.cv$)
+
+ 
   }
 
   supprimer() {

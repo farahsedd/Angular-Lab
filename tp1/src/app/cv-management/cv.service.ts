@@ -44,4 +44,14 @@ export class CvService {
     }
     return cv;
   }
+
+  getCvsByName(name: string) {
+    const filter = encodeURIComponent(`{"where":{"name":{"like":"%${name}%"}}}`);
+    const url = `https://apilb.tridevs.net/api/personnes?filter=${filter}`;
+    return this.http.get<Cv[]>(url)
+        .pipe(
+            catchError(e => of(dataService.cvs))
+        );;
+  }
+
 }

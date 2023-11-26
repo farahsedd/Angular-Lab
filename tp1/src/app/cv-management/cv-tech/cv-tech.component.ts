@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { map } from 'rxjs';
+import { map, of, switchMap } from 'rxjs';
 import { Observable } from 'rxjs';
 import {CvService} from "../cv.service";
 import {EmbaucheService} from "../embauche.service";
 import {Cv} from "../Cv";
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-cv-tech',
@@ -20,17 +21,28 @@ export class CvTechComponent {
   cvsAbove40$: Observable<Cv[]> = new Observable<Cv[]>();
   cvsBelow40$: Observable<Cv[]> = new Observable<Cv[]>();
   shouldDisplayAbove40: boolean = false;
+  searchControl = new FormControl<string>("");
+  filteredCvs$: Observable<Cv[]> = new Observable<Cv[]>();
+  allCvs: Cv[] = [];
 
   async ngOnInit(): Promise<void> {
     this.cvs$ = this.cvService.getAllCvs();
+    this.filteredCvs$ = this.cvService.getCvsByName('')
     this.embauchees = this.embaucheService.getEmbauchees();
-    this.cvsAbove40$ = this.cvs$. pipe(
-      map((cvs) => cvs.filter((cv) => cv.age && cv.age > 40))
+    const searchValue$ = this.searchControl.valueChanges.pipe(
+        switchMap(searchText => this.cvService.getCvsByName(searchText ?? ''))
+    );
+    this.cvsAbove40$ = this.filteredCvs$.pipe(
+        map((cvs) => cvs.filter((cv) => cv.age && cv.age > 40))
     );
 
-    this.cvsBelow40$ = this.cvs$.pipe(
-      map((cvs) => cvs.filter((cv) => cv.age && cv.age <= 40))
+    this.cvsBelow40$ = this.filteredCvs$.pipe(
+        map((cvs) => cvs.filter((cv) => cv.age && cv.age <= 40))
     );
+    searchValue$.subscribe(filteredCvs => {
+      this.filteredCvs$ = of(filteredCvs);
+    });
+
   }
 
   onSelect(event:Cv): void {

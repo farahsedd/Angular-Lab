@@ -1,3 +1,5 @@
+
+
 <div *ngIf="cv$ | async" style="margin: auto;max-width: 60%;min-width: 500px">
   <div class="card mb-3">
     <img src="{{(cv$ | async)?.path}}" class="card-img-top" alt="Cv of {{(cv$ | async)?.name}}" height="200px" style="object-fit: contain">
