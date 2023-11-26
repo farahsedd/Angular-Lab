@@ -26,6 +26,7 @@ export class ProductService {
     }
     const skip = (this.currentPage - 1) * this.limit;
     const url = `https://dummyjson.com/products?limit=${this.limit}&skip=${skip}`;
+    this.currentPage++;
     return this.http.get<{ limit: string, products: Product[], skip: string, total: string }>(url)
       .pipe(
         tap(response => {
@@ -36,7 +37,6 @@ export class ProductService {
             this.completed = true;
           }
           this.productsSubject.next([...currentProducts,...newProducts]);
-          this.currentPage++;
       }));
   }
 
