@@ -13,9 +13,15 @@ export class ListComponent {
   @Input() cvs: Cv[] | null = [];
   @Output() selectCv = new EventEmitter<Cv>();
 
-  @Input()
-  onItemClick!: (cv: Cv)=>void;
+  @Output() onItemClick = new EventEmitter<Cv>();
+
+  // @Input()
+  // onItemClick!: (cv: Cv)=>void;
   
+  onClick(cv: any): void {
+    this.onItemClick.emit(cv);
+  }
+
   onSelect(cv: any): void {
     this.selectCv.emit(cv);
   }

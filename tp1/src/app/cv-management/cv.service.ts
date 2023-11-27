@@ -24,7 +24,8 @@ export class CvService {
   getCvById(id: string): Observable<Cv> {
     return this.http.get('https://apilb.tridevs.net/api/personnes/' + id).pipe(
       map((obj) => obj as Cv ),
-      catchError(e => of(dataService.cvs[0]))
+      catchError(e => of(dataService.cvs.find((cv)=>{
+        return cv.id==id}) as Cv) )
     )
   }
 

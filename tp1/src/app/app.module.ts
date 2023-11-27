@@ -46,7 +46,7 @@ import { MergeComponent } from './merge/merge.component';
     SelectedComponent,
     MasterDetailsCvComponent,
     NavbarComponent,
-    DetailsComponent
+    DetailsComponent,
     MergeComponent,
     SelectedComponent,
     PaginatedListComponent,

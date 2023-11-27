@@ -14,7 +14,7 @@ class DataService {
     following: "10",
     projects: "10"
   }, {
-    id: "1",
+    id: "2",
     name: "Doe",
     firstname: "John 42",
     path: "https://brsc.sa.edu.au/wp-content/uploads/2018/09/placeholder-profile-sq.jpg",

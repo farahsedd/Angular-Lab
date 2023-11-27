@@ -28,9 +28,10 @@ export class MasterDetailsCvComponent {
     )
   }
 
-  showDetails(cv: Cv){
-    console.log("navigating to... cv/list/"+cv.id);
-    this.router.navigate(['cv', 'list', cv.id]);
+  showDetails(event: Cv){
+    console.log(event);
+    this.router.navigate([]);
+    this.router.navigate(['cv', 'list', event.id]);
   }
 
 }

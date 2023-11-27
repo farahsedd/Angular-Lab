@@ -1,6 +1,7 @@
 <div class="row">
-  <app-list [cvs]="cvs$ | async"  [onItemClick]="showDetails"></app-list>
+  <app-list [cvs]="cvs$ | async"  (onItemClick)="showDetails($event)"></app-list>
 </div>
 <div class="row">
+  
     <router-outlet></router-outlet>
 </div>

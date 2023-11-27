@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CvService } from '../cv.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Cv } from '../Cv';
 
@@ -17,15 +17,22 @@ export class DetailsComponent {
 
   cv!: Cv;
 
-  constructor() {
-    this.route.data.subscribe((data) => {
-      if (data['cv'] == null) {
-        this.toaster.error('Aucun cv trouvé');
-        this.router.navigate(['']);
+  ngOnInit() {
+    this.getCv()
+    this.router.events.subscribe((data) => {
+      if (data instanceof NavigationEnd){
+        this.getCv()
       }
-      this.cv = data['cv'];
     });
   }
+
+  
+  getCv(){const id = this.route.snapshot.params['id'];
+  this.cvService.getCvById(id).subscribe(
+    (data)=>{
+      this.cv=data
+    }
+  );}
 
   onClick() {
     const id = this.route.snapshot.params['id'];
