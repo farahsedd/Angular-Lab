@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { authActions } from './login/store/user.actions';
-import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler';
-import { initialUserState } from './login/store/user.state';
+
 
 @Component({
   selector: 'app-root',

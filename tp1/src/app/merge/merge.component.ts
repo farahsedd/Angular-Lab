@@ -66,8 +66,6 @@ export class MergeComponent implements OnInit {
     this.terminate1 = new Subject<void>()
     this.terminate2 = new Subject<void>()
     this.form.reset()
-
-
     this.setupObservables();
   }
 
