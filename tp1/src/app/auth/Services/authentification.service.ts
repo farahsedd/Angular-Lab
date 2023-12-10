@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 import { User } from '../Models/user';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import {Response} from "../Models/respose.dto";
 
 @Injectable({
   providedIn: 'root',
@@ -31,14 +32,18 @@ export class AuthentificationService {
 
   login(email: string, password: string) {
     return this.http
-      .post<User>(this.authURL, {
+      .post<Response>(this.authURL, {
         email,
         password,
       })
       .pipe(
-        tap((user) => {
-          localStorage.setItem('user', JSON.stringify(user));
-          this.userSubject.next(user);
+        tap((res) =>{
+          const token = {
+            token:res.id,
+            email:email
+          };
+          localStorage.setItem('user', res.id);
+          this.userSubject.next(res);
         })
       );
   }

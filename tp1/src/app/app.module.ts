@@ -18,7 +18,8 @@ import {ProductPageComponent} from './product/product-page/product-page.componen
 import { MergeComponent } from './merge/merge.component';
 import {CvModule} from "./cv/cv.module";
 import {AuthModule} from "./auth/auth.module";
-import {userReducer} from "./auth/store/user.reducers";
+import { AddCvComponent } from './cv-management/add-cv/add-cv.component';
+import {loginInterceptorProvider} from "./interceptors/login.interceptor";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {userReducer} from "./auth/store/user.reducers";
     MergeComponent,
     PaginatedListComponent,
     ProductItemComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    AddCvComponent
   ],
   imports: [
     AuthModule,
@@ -44,7 +46,7 @@ import {userReducer} from "./auth/store/user.reducers";
     ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [loginInterceptorProvider],
   bootstrap: [AppComponent],
 
 })
