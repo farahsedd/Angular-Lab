@@ -41,7 +41,6 @@ import {loginInterceptorProvider} from "./interceptors/login.interceptor";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgOptimizedImage,
     BrowserAnimationsModule,
     ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
     ReactiveFormsModule

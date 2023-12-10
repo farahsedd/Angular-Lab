@@ -3,8 +3,8 @@ import { map, Observable, of, tap } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ActivatedRoute, CanDeactivate, Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import {CvService} from "../cv.service";
 import {Cv} from "../model/cv";
+import {CvService} from "../../cv/cv.service";
 
 @Component({
   selector: 'app-add-cv',

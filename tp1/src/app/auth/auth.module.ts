@@ -6,6 +6,7 @@ import {AuthRoutingModule} from "./auth-routing.module";
 import {StoreModule} from "@ngrx/store";
 import {userReducer} from "./store/user.reducers";
 import {FormsModule} from "@angular/forms";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 
 
 
