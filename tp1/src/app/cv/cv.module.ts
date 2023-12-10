@@ -10,6 +10,7 @@ import {MasterDetailsCvComponent} from "./master-details-cv/master-details-cv.co
 import {ItemComponent} from "./item/item.component";
 import { ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
+import {CommonModule} from "@angular/common";
 
 
 
@@ -26,8 +27,8 @@ import {BrowserModule} from "@angular/platform-browser";
     CardComponent,
   ],
   imports: [
+    CommonModule,
     CvRoutingModule,
-    BrowserModule,
     ReactiveFormsModule
   ]
 })
