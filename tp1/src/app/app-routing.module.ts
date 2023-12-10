@@ -15,6 +15,7 @@ import {CvComponent} from "./cv-management/cv/cv.component";
 import {PaginatedListComponent} from "./product/paginated-list/paginated-list.component";
 import {ProductPageComponent} from "./product/product-page/product-page.component";
 import {MergeComponent} from "./merge/merge.component";
+import {AddCvComponent} from "./cv-management/add-cv/add-cv.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/mini-word', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'cv-tech', component: CvTechComponent },
+  { path: 'cv/add', component: AddCvComponent },
   {
     path: 'cv/list',
     component: MasterDetailsCvComponent,

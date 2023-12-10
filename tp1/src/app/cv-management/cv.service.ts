@@ -52,7 +52,10 @@ export class CvService {
     return this.http.get<Cv[]>(url)
         .pipe(
             catchError(e => of(dataService.cvs))
-        );;
+        );
   }
 
+  addCv(cv:Cv):Observable<any>{
+    return this.http.post('https://apilb.tridevs.net/api/personnes',cv)
+  }
 }

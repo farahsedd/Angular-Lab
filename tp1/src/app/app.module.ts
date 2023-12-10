@@ -29,6 +29,8 @@ import {PaginatedListComponent} from './product/paginated-list/paginated-list.co
 import {ProductItemComponent} from './product/product-item/product-item.component';
 import {ProductPageComponent} from './product/product-page/product-page.component';
 import { MergeComponent } from './merge/merge.component';
+import { AddCvComponent } from './cv-management/add-cv/add-cv.component';
+import {loginInterceptorProvider} from "./interceptors/login.interceptor";
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { MergeComponent } from './merge/merge.component';
     SelectedComponent,
     PaginatedListComponent,
     ProductItemComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    AddCvComponent
   ],
   imports: [
     FormsModule,
@@ -62,12 +65,11 @@ import { MergeComponent } from './merge/merge.component';
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     }),
-    NgOptimizedImage,
     BrowserAnimationsModule,
     ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [loginInterceptorProvider],
   bootstrap: [AppComponent],
 
 })
