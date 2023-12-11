@@ -3,7 +3,7 @@ import { map, Observable, of, tap } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ActivatedRoute, CanDeactivate, Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import {Cv} from "../model/cv";
+import {Cv} from "../model/cv"
 import {CvService} from "../service/cv.service";
 
 @Component({
@@ -46,21 +46,19 @@ export class AddCvComponent implements OnInit {
   ngOnInit(): void {}
 
   add(cv: Cv) {
-
-
     if (this.id) {
-
-      this.response$ = this.cvService.updateCv(this.addForm.value).pipe(
+      cv.id=this.id
+     // cv={id:this.id,name:this.addForm.value.name,firstname:this.addForm.value.firstname,job: this.addForm.value.job,age:this.addForm.value.age,cin:this.addForm.value.cin,path:this.addForm.value.path}
+      this.response$ = this.cvService.updateCv(cv).pipe(
         tap(() => {
-
-          this.toast.success('Cv modifié avec succès');
+          this.toast.success('Cv modified ');
           this.router.navigate(['cv', this.id]);
         })
       );
     } else {
       this.response$ = this.cvService.addCv(this.addForm.value).pipe(
         tap(() => {
-          this.toast.success('Cv ajouté avec succès');
+          this.toast.success('Cv added');
           this.addForm.reset();
         })
       );

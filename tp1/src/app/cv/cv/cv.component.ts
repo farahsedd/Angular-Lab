@@ -47,13 +47,9 @@ export class CvComponent {
   }
 
   modifier (){
-
       const link = ['cv/update', this.id];
       console.log(this.id)
       this.router.navigate(link);
-
-
-
   }
   embaucher(){
     this.cv$.subscribe((cv)=>this.embaucheService.embaucher(cv));

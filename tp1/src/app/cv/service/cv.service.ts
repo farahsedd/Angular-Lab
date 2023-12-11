@@ -4,7 +4,7 @@ import { map } from 'rxjs';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { catchError } from 'rxjs';
-import {Cv} from "../Cv";
+import {Cv} from "../model/cv";
 import {dataService} from "../data";
 
 @Injectable({
@@ -33,7 +33,6 @@ export class CvService {
       return this.http.delete('https://apilb.tridevs.net/api/personnes/' + id);
     }
   updateCv(cv: Cv){
-
     return this.http.patch(  'https://apilb.tridevs.net/api/personnes', cv);
   }
 

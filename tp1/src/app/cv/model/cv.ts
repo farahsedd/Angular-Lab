@@ -7,6 +7,9 @@ export class Cv {
     public age=0,
     public path = "",
     public job = "",
-
+    public description="",
+    public followers="",
+    public following="",
+    public projects="",
   ) {}
 }

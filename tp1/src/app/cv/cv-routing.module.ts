@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'cv/add', component: AddCvComponent ,
     canDeactivate: [cvGuard],
   },
-  {path:'update/:id',component:AddCvComponent,
+  {path:'cv/update/:id',component:AddCvComponent,
     canDeactivate: [cvGuard],
   },
   {
