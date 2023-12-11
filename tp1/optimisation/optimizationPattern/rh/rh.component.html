@@ -1,0 +1,14 @@
+
+<div class="chart-container">
+  <canvas  id="MyChart" >{{chart}}</canvas>
+</div>
+
+<div class="row">
+  <div class="col">
+    <app-users [users]="oddUsers" [usersCluster]="'Workers'"></app-users>
+  </div>
+  <div class="col">
+    <app-users [users]="evenUsers" [usersCluster]="'Boss'"></app-users>
+  </div>
+</div>
+

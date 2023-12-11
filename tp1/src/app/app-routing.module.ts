@@ -1,6 +1,7 @@
 
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import { RhComponent } from '../../optimisation/optimizationPattern/rh/rh.component';
 import {MiniWordComponent} from "./mini-word/mini-word.component";
 import {RainbowWordComponent} from "./rainbow-word/rainbow-word.component";
 import {PaginatedListComponent} from "./product/paginated-list/paginated-list.component";
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'rainbow-word', component: RainbowWordComponent },
   { path: 'merge', component: MergeComponent },
   { path: 'product-list', component:  PaginatedListComponent },
-  { path: 'product/:id', component: ProductPageComponent }
+  { path: 'product/:id', component: ProductPageComponent },
+  { path: 'optimisation', component: RhComponent},
 ];
 
 @NgModule({

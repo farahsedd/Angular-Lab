@@ -1,0 +1,8 @@
+<div class="alert alert-info">List of {{usersCluster}}</div>
+<ol class="list-group">
+  <li
+    *ngFor="let user of users"
+    class="list-group-item">
+    {{user.name}} : {{user.age}} [{{fibo(user.age)}}]
+  </li>
+</ol>

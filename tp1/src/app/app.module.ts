@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { AddUserInputComponent } from '../../optimisation/optimizationPattern/add-user-input/add-user-input.component';
+import { RhComponent } from '../../optimisation/optimizationPattern/rh/rh.component';
+import { UserListComponent } from '../../optimisation/optimizationPattern/user-list/user-list.component';
+import { UsersComponent } from '../../optimisation/optimizationPattern/users/users.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MiniWordComponent } from './mini-word/mini-word.component';
@@ -30,7 +34,11 @@ import {userReducer} from "./auth/store/user.reducers";
     MergeComponent,
     PaginatedListComponent,
     ProductItemComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    UsersComponent,
+    AddUserInputComponent,
+    RhComponent,
+    UserListComponent,
   ],
   imports: [
     AuthModule,
