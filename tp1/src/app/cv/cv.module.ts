@@ -11,6 +11,7 @@ import {ItemComponent} from "./item/item.component";
 import { ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {CommonModule} from "@angular/common";
+import { AuthGuardService } from '../guards/auth.guard';
 
 
 
@@ -30,6 +31,9 @@ import {CommonModule} from "@angular/common";
     CommonModule,
     CvRoutingModule,
     ReactiveFormsModule
+  ],
+  providers:[
+    AuthGuardService
   ]
 })
 export class CvModule { }

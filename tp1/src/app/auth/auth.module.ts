@@ -19,7 +19,7 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
   imports: [
     AuthRoutingModule,
     CommonModule,
-    StoreModule.forRoot({user:userReducer},{}),
+
     StoreDevtoolsModule.instrument({
       maxAge: 25,
     }),
