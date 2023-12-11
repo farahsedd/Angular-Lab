@@ -6,17 +6,17 @@ import { Observable } from 'rxjs';
 import {AddCvComponent} from "../cv/add-cv/add-cv.component";
 
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class UnsavedChangesGuard implements CanDeactivate<AddCvComponent>{
-//   canDeactivate(
-//     component: AddCvComponent,
-//     currentRoute: ActivatedRouteSnapshot,
-//     currentState: RouterStateSnapshot,
-//     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
-//   {
-//     //return component.canDeactivate? component.canDeactivate(): true;
-//   }
-//
-// }
+@Injectable({
+  providedIn: 'root'
+})
+export class UnsavedChangesGuard implements CanDeactivate<AddCvComponent>{
+  canDeactivate(
+    component: AddCvComponent,
+    currentRoute: ActivatedRouteSnapshot,
+    currentState: RouterStateSnapshot,
+    nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
+  {
+    return component.canDeactivate? component.canDeactivate(): true;
+  }
+
+}

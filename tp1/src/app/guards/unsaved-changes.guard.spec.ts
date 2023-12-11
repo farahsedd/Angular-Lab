@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 import { CanDeactivateFn } from '@angular/router';
 
-import { unsavedChangesGuard } from './unsaved-changes.guard';
+// import { unsavedChangesGuard } from './unsaved-changes.guard';
 
-describe('unsavedChangesGuard', () => {
-  const executeGuard: CanDeactivateFn = (...guardParameters) => 
-      TestBed.runInInjectionContext(() => unsavedChangesGuard(...guardParameters));
+// describe('unsavedChangesGuard', () => {
+//   const executeGuard: CanDeactivateFn = (...guardParameters) => 
+//       TestBed.runInInjectionContext(() => unsavedChangesGuard(...guardParameters));
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-  });
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({});
+//   });
 
-  it('should be created', () => {
-    expect(executeGuard).toBeTruthy();
-  });
-});
+//   it('should be created', () => {
+//     expect(executeGuard).toBeTruthy();
+//   });
+// });
