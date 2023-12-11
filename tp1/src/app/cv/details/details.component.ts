@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CvService } from '../cv.service';
+import { CvService } from '../service/cv.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Cv } from '../Cv';
@@ -26,7 +26,7 @@ export class DetailsComponent {
     });
   }
 
-  
+
   getCv(){const id = this.route.snapshot.params['id'];
   this.cvService.getCvById(id).subscribe(
     (data)=>{
@@ -34,12 +34,31 @@ export class DetailsComponent {
     }
   );}
 
-  onClick() {
-    const id = this.route.snapshot.params['id'];
-    this.cvService.supprimerCv(id).subscribe({
-      next: () => {
-        this.router.navigate(['cv']);
-      },
-    });
+  delete() {
+
+    if (this.cv) {
+      this.cvService.supprimerCv(parseInt(this.cv.id)).subscribe(
+        {
+          next: () => {
+
+
+            //this.router.navigate(['/cv']);
+          },
+          error: (error) => {
+            console.error('Error deleting CV:', error);
+          }
+        }
+      );
+    }
   }
+
+
+  update() {
+    if (this.cv) {
+      const link = ['cv/update', this.cv.id];
+      console.log(this.cv.id)
+      this.router.navigate(link);
+    }
+  }
+
 }

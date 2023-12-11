@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { map, Observable, of, tap } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ActivatedRoute, CanDeactivate, Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import {Cv} from "../model/cv";
-import {CvService} from "../../cv/cv.service";
+import {CvService} from "../service/cv.service";
 
 @Component({
   selector: 'app-add-cv',
@@ -46,17 +46,39 @@ export class AddCvComponent implements OnInit {
   ngOnInit(): void {}
 
   add(cv: Cv) {
+
+
+    if (this.id) {
+
+      this.response$ = this.cvService.updateCv(this.addForm.value).pipe(
+        tap(() => {
+
+          this.toast.success('Cv modifié avec succès');
+          this.router.navigate(['cv', this.id]);
+        })
+      );
+    } else {
       this.response$ = this.cvService.addCv(this.addForm.value).pipe(
         tap(() => {
           this.toast.success('Cv ajouté avec succès');
           this.addForm.reset();
         })
       );
+    }
+
+    this.response$.subscribe();
 
 
     this.response$.subscribe();
   }
-
-
+  // @HostListener("window:beforeunload")
+  // canDeactivate(){
+  //   alert('bnbn')
+  //   if (this.addForm.dirty){
+  //     window.confirm('You have unsaved changes. Do you really want to leave?');
+  //   }
+  //   return true;
+  // }
+  //
 
 }

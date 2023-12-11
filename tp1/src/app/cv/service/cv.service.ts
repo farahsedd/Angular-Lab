@@ -4,8 +4,8 @@ import { map } from 'rxjs';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { catchError } from 'rxjs';
-import {Cv} from "./Cv";
-import {dataService} from "./data";
+import {Cv} from "../Cv";
+import {dataService} from "../data";
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +29,13 @@ export class CvService {
     )
   }
 
-  supprimerCv(id:string): Observable<any> {
+  supprimerCv(id:number): Observable<any> {
       return this.http.delete('https://apilb.tridevs.net/api/personnes/' + id);
     }
+  updateCv(cv: Cv){
+
+    return this.http.patch(  'https://apilb.tridevs.net/api/personnes', cv);
+  }
 
   private fillCv = (cv:Cv)=>{
     cv.description = cv.description??"This is the job description"

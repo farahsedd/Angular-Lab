@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {CvService} from "../cv.service";
+import {CvService} from "../service/cv.service";
 import {EmbaucheService} from "../embauche.service";
 import {NavigationExtras, Router} from "@angular/router";
 import {Cv} from "../Cv";
@@ -26,6 +26,7 @@ export class CardComponent{
   }
 
   navigate() {
+
     this.router.navigate(['cv', this.cv.id]);
   }
 }

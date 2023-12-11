@@ -1,6 +1,6 @@
 
 
-<div *ngIf="cv$ | async" style="margin: auto;max-width: 60%;min-width: 500px">
+<div *ngIf="cv$| async" style="margin: auto;max-width: 60%;min-width: 500px">
   <div class="card mb-3">
     <img src="{{(cv$ | async)?.path}}" class="card-img-top" alt="Cv of {{(cv$ | async)?.name}}" height="200px" style="object-fit: contain">
     <div class="card-body">
@@ -15,7 +15,8 @@
     </div>
   </div>
   <div style="display: flex;justify-content: space-evenly">
-    <button class="btn btn-primary" (click)="embaucher()">Embaucher</button>
-    <button class="btn btn-danger button" (click)="supprimer()">Supprimer</button>
+    <button *ngIf="isLoggedIn$ | async" class="btn btn-primary" (click)="embaucher()">Embaucher</button>
+    <button *ngIf="isLoggedIn$ | async"class="btn btn-danger button" (click)="supprimer()">Supprimer</button>
+    <button *ngIf="isLoggedIn$ | async"class="btn btn-secondary button" (click)="modifier()">Modifier</button>
   </div>
 </div>

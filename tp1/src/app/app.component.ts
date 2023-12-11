@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import {Observable} from "rxjs";
+import {AuthentificationService} from "./auth/Services/authentification.service";
 
 
 @Component({
@@ -9,7 +11,11 @@ import { Store } from '@ngrx/store';
 })
 export class AppComponent {
   title = 'tp1';
-  constructor(private store: Store) {}
+  isLoggedIn$ : Observable<boolean>
+  constructor(private authentificationService: AuthentificationService,private store: Store) {
+    this.isLoggedIn$ = this.authentificationService.isAuthenticated$;
+
+  }
 
   // ngOnInit() {
   //   // Dispatch the action to load the user state on application startup

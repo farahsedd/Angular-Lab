@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { map, of, switchMap } from 'rxjs';
 import { Observable } from 'rxjs';
-import {CvService} from "../cv.service";
+import {CvService} from "../service/cv.service";
 import {EmbaucheService} from "../embauche.service";
 import {Cv} from "../Cv";
 import { FormControl } from '@angular/forms';

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CvService } from '../cv.service';
+import { CvService } from '../service/cv.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, catchError, of } from 'rxjs';
@@ -11,7 +11,7 @@ import { Cv } from '../Cv';
   styleUrls: ['./master-details-cv.component.css']
 })
 export class MasterDetailsCvComponent {
-  
+
   cvService = inject(CvService);
   toaster = inject(ToastrService);
   router = inject(Router);

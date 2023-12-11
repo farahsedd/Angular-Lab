@@ -7,14 +7,21 @@ import {RouterModule, Routes} from '@angular/router';
 import {ListComponent} from "./list/list.component";
 import {CvTechComponent} from "./cv-tech/cv-tech.component";
 import {CvComponent} from "./cv/cv.component";
-import {AddCvComponent} from "../cv-management/add-cv/add-cv.component";
+import {AddCvComponent} from "./add-cv/add-cv.component";
+import {cvGuard} from "./guards/cv.guard";
+
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/cv-tech', pathMatch: 'full' },
   { path: 'cv', component: ListComponent },
   { path: 'cv-tech', component: CvTechComponent },
-  { path: 'cv/add', component: AddCvComponent },
+  { path: 'cv/add', component: AddCvComponent ,
+    canDeactivate: [cvGuard],
+  },
+  {path:'update/:id',component:AddCvComponent,
+    canDeactivate: [cvGuard],
+  },
   {
     path: 'cv/list',
     component: MasterDetailsCvComponent,

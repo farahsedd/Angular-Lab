@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {CvService} from "../cv.service";
+import {CvService} from "../service/cv.service";
 import {Cv} from "../Cv";
 
 @Component({
@@ -17,7 +17,7 @@ export class ListComponent {
 
   // @Input()
   // onItemClick!: (cv: Cv)=>void;
-  
+
   onClick(cv: any): void {
     this.onItemClick.emit(cv);
   }
